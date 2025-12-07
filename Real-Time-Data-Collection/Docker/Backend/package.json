@@ -1,0 +1,23 @@
+{
+  "name": "realtime-ecommerce-backend",
+  "version": "1.0.0",
+  "description": "Backend for Real-Time E-Commerce Analytics project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "kafka-node": "^5.0.0",
+    "kafkajs": "^2.2.4",
+    "pg": "^8.11.1",
+    "uuid": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "author": "Your Name",
+  "license": "ISC",
+  "type": "commonjs"
+}
