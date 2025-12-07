@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Page</title>
+  <script type="module">
+    import tracker from './tracker/dist/index.js';
+    // Initialize tracker (e.g., specifying endpoint and batching)
+    tracker.init({
+      endpoint: 'https://api.example.com/collect',
+      batchSize: 20,
+      batchInterval: 10000
+    });
+
+    // Track that this product page was viewed
+    const productId = 123;
+    tracker.track('product_view', { product_id: productId });
+
+    // Hook up Add to Cart button
+    document.getElementById('addToCart').addEventListener('click', () => {
+      tracker.track('add_to_cart', { product_id: productId });
+    });
+
+    // Hook up Remove from Cart button
+    document.getElementById('removeFromCart').addEventListener('click', () => {
+      tracker.track('remove_from_cart', { product_id: productId });
+    });
+
+    // Hook up Add to Wishlist button
+    document.getElementById('addToWishlist').addEventListener('click', () => {
+      tracker.track('add_to_wishlist', { product_id: productId });
+    });
+
+    // Example: Track checkout step
+    // (E.g., when user proceeds to checkout, step 1)
+    document.getElementById('checkoutStep1').addEventListener('click', () => {
+      tracker.track('checkout_step', { step: 1 });
+    });
+  </script>
+</head>
+<body>
+  <h1>Product: Awesome Widget</h1>
+  <button id="addToCart">Add to Cart</button>
+  <button id="removeFromCart">Remove from Cart</button>
+  <button id="addToWishlist">Add to Wishlist</button>
+  <button id="checkoutStep1">Checkout - Step 1</button>
+</body>
+</html>
