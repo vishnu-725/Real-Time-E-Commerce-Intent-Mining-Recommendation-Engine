@@ -1,1 +1,1 @@
-# Real-Time-E-Commerce-Intent-Mining-Recommendation-Engine
+# Real-Time-E-Commerce-Recommendation-Engine
