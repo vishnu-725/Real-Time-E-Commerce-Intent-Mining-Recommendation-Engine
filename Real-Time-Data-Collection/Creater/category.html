@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Category Page</title>
+  <script type="module">
+    import tracker from './tracker/dist/index.js';
+    tracker.init({ endpoint: 'https://api.example.com/collect' });
+
+    // Track category view when page loads
+    const categoryId = 'electronics';
+    tracker.track('category_view', { category_id: categoryId });
+
+    // Example: Track clicks on featured products
+    document.querySelectorAll('.product-link').forEach(el => {
+      el.addEventListener('click', (e) => {
+        const prodId = e.target.dataset.productId;
+        tracker.track('click', { target: 'product_link', product_id: prodId });
+      });
+    });
+
+    // Example: Track search query if any search input exists
+    document.getElementById('searchForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const query = document.getElementById('searchInput').value;
+      tracker.track('search', { query: query });
+      // perform search...
+    });
+  </script>
+</head>
+<body>
+  <h1>Category: Electronics</h1>
+  <form id="searchForm">
+    <input id="searchInput" type="text" placeholder="Search...">
+    <button type="submit">Search</button>
+  </form>
+  <!-- ... product list ... -->
+</body>
+</html>
